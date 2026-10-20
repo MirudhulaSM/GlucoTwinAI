@@ -15,71 +15,9 @@ Its primary predictive objective is estimating the prospective risk of a documen
 
 ## 2. End-to-End System Architecture
 
-```mermaid
-flowchart TB
-    subgraph DataLayer [Synthetic Telemetry & Cohort Generator]
-        G1[EHR Profiles: Demographics, HbA1c, Baseline Therapy]
-        G2[Continuous Telemetry Generator: CGM, HR, Steps, Sleep]
-        G3[Physiological Dynamics: Meal Absorption, Dawn Phenomenon, Exercise Uptake]
-    end
+## 2. End-to-End System Architecture
 
-    subgraph StateMachine [Virtual Patient Twin Engine]
-        SM1[In-Memory Twin Registry: PT-101 .. PT-104]
-        SM2[Simulation Clock Controller: +5m, +15m, +30m, Auto-Advance]
-        SM3[Sensor Fault Injector: Stale Lag, Compression Drop, Dropouts]
-    end
-
-    subgraph FeaturePipeline [Leak-Free Sliding Window Causal Isolator]
-        F1[CGM Velocities: dG/dt 15m, 30m, 60m, Acceleration d²G/dt²]
-        F2[Glycemic Variabilities: Mean, Min, Max, SD, TIR 70-180 in past 2h]
-        F3[Wearable Signals: HR Mean/Trend, Steps Sum 30m/1h/2h]
-        F4[Diurnal Circadian Encodings: sin/cos hour, Sleep Stage]
-        F5[EHR Static Vectors: Age, Diabetes Type, HbA1c, BMI]
-    end
-
-    subgraph MLEngine [ML Model & Evaluation Engine]
-        M1[Fitted Pipeline: StandardScaler + GradientBoostingClassifier]
-        M2[Held-Out Patient Partition: PT-103 & PT-104 Unseen Test Set]
-        M3[Model Artifacts: glucotwin_model.joblib, metrics.json]
-        M4[Inference Service: 2h Excursion Risk %, 80% CI Forecast Corridor]
-        M5[Explainability Service: Tree-based Gradient Attributions]
-    end
-
-    subgraph CounterfactualLab [What-If Counterfactual Lab]
-        W1[Scenario In Silico Perturbations: Activity, Carbs, Sleep Multipliers]
-        W2[Physiological Modulator: Exercise ROC Drop, Carb Surge, Cortisol Shift]
-        W3[Comparative Assessor: Baseline vs Scenario Risk, Delta Risk]
-    end
-
-    subgraph APILayer [FastAPI Backend Service]
-        API1[/api/patients & /api/patients/:id/telemetry]
-        API2[/api/predict/:id]
-        API3[/api/simulation/:id/step, reset, anomaly]
-        API4[/api/whatif/simulate]
-        API5[/api/metrics]
-    end
-
-    subgraph FrontendUI [React + TypeScript + Tailwind Clinical Command Center]
-        UI1[Clinical Disclaimer Banner & Status Header]
-        UI2[Vitals Quick Bar: CGM, Trend Arrow, Vagal Tone, Freshness]
-        UI3[Synthetic EHR Profile & Phenotype Summary]
-        UI4[Continuous Glycemic Stream & 2h Forecast Corridor Recharts]
-        UI5[2-Hour Excursion Risk Probability Gauge]
-        UI6[Supported Feature Attributions Waterfall Panel]
-        UI7[What-If In Silico Counterfactual Lab Studio]
-        UI8[Telemetry Quality & Safety Engine Card]
-        UI9[Held-Out Empirical Validation Modal]
-    end
-
-    DataLayer --> StateMachine
-    StateMachine --> FeaturePipeline
-    FeaturePipeline --> MLEngine
-    MLEngine --> APILayer
-    CounterfactualLab --> APILayer
-    APILayer --> FrontendUI
-```
-
----
+![GlucoTwin AI End-to-End System Architecture](docs/architecture.png)
 
 ## 3. Data Flow & Temporal Integrity (Zero Future Leakage)
 
