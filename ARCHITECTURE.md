@@ -13,11 +13,10 @@ Its primary predictive objective is estimating the prospective risk of a documen
 
 ---
 
-## 2. End-to-End System Architecture
 
 ## 2. End-to-End System Architecture
 
-![GlucoTwin AI End-to-End System Architecture](docs/architecture.png)
+![GlucoTwin AI End-to-End System Architecture](docs/architecture.pdf)
 
 ## 3. Data Flow & Temporal Integrity (Zero Future Leakage)
 
