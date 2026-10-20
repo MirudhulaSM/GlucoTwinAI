@@ -164,6 +164,8 @@ Click the **"Held-Out Validation"** button in the header to view the complete sc
 
 ## Documentation Deliverables
 
+[View Architecture Diagram (PDF)](docs/architecture.pdf)
+
 - [ARCHITECTURE.md](ARCHITECTURE.md): Detailed system architecture, data flow, Mermaid diagrams, and mathematical formulation.
 - [PRESENTATION.md](PRESENTATION.md): Pitch outline and slide deck narrative for the Digital Twin Challenge 2026.
 - [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md): Step-by-step evaluator and clinician demonstration protocol.
