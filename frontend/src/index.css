@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900;
+    min-height: 100vh;
+  }
+}
+
+/* Custom clinical scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hospital Clean Card Utilities */
+.hospital-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+  border-radius: 0.75rem;
+}
+
+.hospital-card-subtle {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+/* Backwards-compatibility aliases mapped to clean hospital theme */
+.glass-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
+}
+
+.glass-panel-subtle {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.glow-teal {
+  box-shadow: 0 0 15px -3px rgba(13, 148, 136, 0.15);
+}
+
+.glow-coral {
+  box-shadow: 0 0 15px -3px rgba(225, 29, 72, 0.15);
+}

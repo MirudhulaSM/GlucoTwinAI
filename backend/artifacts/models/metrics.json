@@ -1,0 +1,76 @@
+{
+  "model_name": "StandardScaler + GradientBoostingClassifier",
+  "split_method": "Patient-Grouped Held-Out (Zero Patient Overlap)",
+  "train_patient_ids": [
+    "PT-101",
+    "PT-102",
+    "PT-105",
+    "PT-106",
+    "PT-107",
+    "PT-108",
+    "PT-109",
+    "PT-110",
+    "PT-111",
+    "PT-112"
+  ],
+  "test_patient_ids": [
+    "PT-103",
+    "PT-104"
+  ],
+  "train_sample_count": 19920,
+  "test_sample_count": 3984,
+  "class_balance": {
+    "train_positive_rate": 0.1785,
+    "test_positive_rate": 0.1747
+  },
+  "roc_auc": 0.9529,
+  "precision": 0.9311,
+  "recall": 0.7184,
+  "f1_score": 0.811,
+  "brier_score": 0.0475,
+  "confusion_matrix": [
+    [
+      3251,
+      37
+    ],
+    [
+      196,
+      500
+    ]
+  ],
+  "feature_importances": {
+    "active_insulin_est": 0.5404,
+    "glucose_current": 0.1456,
+    "sin_hour": 0.1347,
+    "cos_hour": 0.0182,
+    "carbs_sum_1h": 0.0173,
+    "glucose_roc_15m": 0.0138,
+    "patient_age": 0.0132,
+    "glucose_roc_60m": 0.0129,
+    "years_diagnosed": 0.0119,
+    "steps_sum_2h": 0.0101,
+    "glucose_min_2h": 0.0096,
+    "steps_sum_30m": 0.0078,
+    "bmi": 0.0077,
+    "hba1c": 0.0075,
+    "glucose_roc_30m": 0.0072,
+    "glucose_max_2h": 0.007,
+    "carbs_sum_2h": 0.0048,
+    "carbs_time_since_last_min": 0.0047,
+    "glucose_mean_1h": 0.0045,
+    "steps_sum_1h": 0.0045,
+    "glucose_std_2h": 0.004,
+    "heart_rate_mean_1h": 0.0028,
+    "glucose_mean_2h": 0.0027,
+    "heart_rate_current": 0.0018,
+    "heart_rate_roc_30m": 0.0012,
+    "sleep_stage_num": 0.001,
+    "is_sleeping": 0.0008,
+    "time_in_range_2h": 0.0008,
+    "glucose_acceleration": 0.0005,
+    "is_type_1": 0.0004,
+    "time_above_180_2h": 0.0002
+  },
+  "trained_at": "2026-10-20T15:43:02.108315",
+  "disclaimer": "RESEARCH PROTOTYPE ONLY - NOT A MEDICAL DEVICE. All records and sensor telemetry are synthetically generated for the Digital Twin Challenge 2026. Not for clinical diagnosis, treatment planning, or medication dosage adjustment."
+}
